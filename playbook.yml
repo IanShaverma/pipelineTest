@@ -1,0 +1,25 @@
+---
+
+- name: Uploading Index HTML
+  hosts: all
+  become: yes
+
+  vars:
+    src_file: /home/ian/pipelineTest/index.j2
+    dst_file: /var/www/html
+
+  tasks:
+  - name: Connection Test
+    ping:
+
+  - name: Upload Index
+    template: src={{ src_file }} dest={{ dst_file }}/index.html mode=0555
+    notify: Restart Nginx
+
+  - name: Start Nginx
+    service: name=nginx state=started enabled=yes
+
+
+  handlers:
+  - name: Restart Nginx
+    service: name=nginx state=restarted

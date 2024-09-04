@@ -1,0 +1,5 @@
+[NGINX_TEST]
+nginx1 ansible_host=10.0.2.15
+
+[NGINX_PROD]
+nginx2 ansible_host=10.0.2.4
