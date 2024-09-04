@@ -5,7 +5,7 @@
   become: yes
 
   vars:
-    src_file: /home/ian/pipelineTest/index.j2
+    src_file: ./index.j2
     dst_file: /var/www/html
 
   tasks:
